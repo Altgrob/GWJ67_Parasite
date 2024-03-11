@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Actors/Player/Player.gd" id="1_527f0"]
 [ext_resource type="Texture2D" uid="uid://cntmkydf2u7mi" path="res://icon.svg" id="1_uv0f6"]
-[ext_resource type="Script" path="res://Scripts/StateMachine.gd" id="3_7d3dr"]
+[ext_resource type="Script" path="res://Scripts/Utils/StateMachine.gd" id="4_b5lip"]
 [ext_resource type="Script" path="res://Scripts/Actors/Player/PlayerStateIdle.gd" id="4_j1e14"]
 [ext_resource type="Script" path="res://Scripts/Actors/Player/PlayerStateMove.gd" id="5_njdyg"]
 [ext_resource type="Script" path="res://Scripts/Actors/DEBUG_STATES.gd" id="6_w0wrh"]
@@ -33,7 +33,7 @@ vertical_alignment = 1
 script = ExtResource("6_w0wrh")
 
 [node name="StateMachine" type="Node2D" parent="."]
-script = ExtResource("3_7d3dr")
+script = ExtResource("4_b5lip")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_j1e14")
