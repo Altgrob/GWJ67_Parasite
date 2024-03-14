@@ -26,3 +26,6 @@ func process(_delta: float) -> Node:
 
 func physics_process(_delta: float) -> Node:
 	return self
+
+func _change_state(state: Node):
+	get_parent().change_state(states[state.name])

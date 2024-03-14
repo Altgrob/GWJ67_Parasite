@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://u33h6lnmwqjb"]
+
+[ext_resource type="Script" path="res://Scripts/Actors/Player/Player.gd" id="1_527f0"]
+[ext_resource type="Texture2D" uid="uid://cntmkydf2u7mi" path="res://icon.svg" id="1_uv0f6"]
+[ext_resource type="Script" path="res://Scripts/Utils/StateMachine.gd" id="4_b5lip"]
+[ext_resource type="Script" path="res://Scripts/Actors/DEBUG_STATES.gd" id="6_w0wrh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_alnny"]
+radius = 35.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_527f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uv0f6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_alnny")
+
+[node name="STATES" type="Label" parent="."]
+visible = false
+offset_left = -23.0
+offset_top = -66.0
+offset_right = 24.0
+offset_bottom = -43.0
+text = "STATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_w0wrh")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("4_b5lip")

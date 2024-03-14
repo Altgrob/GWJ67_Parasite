@@ -1,42 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://u33h6lnmwqjb"]
+[gd_scene load_steps=6 format=3 uid="uid://d1ey24m34buq7"]
 
-[ext_resource type="Script" path="res://Scripts/Actors/Player/Player.gd" id="1_527f0"]
-[ext_resource type="Texture2D" uid="uid://cntmkydf2u7mi" path="res://icon.svg" id="1_uv0f6"]
-[ext_resource type="Script" path="res://Scripts/Utils/StateMachine.gd" id="4_b5lip"]
+[ext_resource type="PackedScene" uid="uid://u33h6lnmwqjb" path="res://Scenes/Actors/Actor.tscn" id="1_28wsm"]
+[ext_resource type="Texture2D" uid="uid://ygfqvqqklfxp" path="res://Assets/Player_sheet.png" id="2_6wjga"]
 [ext_resource type="Script" path="res://Scripts/Actors/Player/PlayerStateIdle.gd" id="4_j1e14"]
 [ext_resource type="Script" path="res://Scripts/Actors/Player/PlayerStateMove.gd" id="5_njdyg"]
-[ext_resource type="Script" path="res://Scripts/Actors/DEBUG_STATES.gd" id="6_w0wrh"]
+[ext_resource type="Script" path="res://Scripts/Actors/Player/PlayerStateShoot.gd" id="7_t1i10"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_alnny"]
-radius = 35.0
+[node name="Player" instance=ExtResource("1_28wsm")]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_527f0")
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(3, -11)
+scale = Vector2(1.59375, 1.59375)
+texture = ExtResource("2_6wjga")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_uv0f6")
+[node name="STATES" parent="." index="3"]
+visible = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_alnny")
-
-[node name="STATES" type="Label" parent="."]
-offset_left = -23.0
-offset_top = -66.0
-offset_right = 24.0
-offset_bottom = -43.0
-text = "STATE"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("6_w0wrh")
-
-[node name="StateMachine" type="Node2D" parent="."]
-script = ExtResource("4_b5lip")
-
-[node name="Idle" type="Node2D" parent="StateMachine"]
+[node name="Idle" type="Node2D" parent="StateMachine" index="0"]
 script = ExtResource("4_j1e14")
 
-[node name="Move" type="Node2D" parent="StateMachine"]
+[node name="Move" type="Node2D" parent="StateMachine" index="1"]
 script = ExtResource("5_njdyg")
+
+[node name="Shoot" type="Node2D" parent="StateMachine" index="2"]
+script = ExtResource("7_t1i10")

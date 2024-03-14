@@ -1,4 +1,10 @@
+class_name Move
 extends BaseState
+
+func input(event: InputEvent) -> Node:
+	if Input.is_action_just_pressed("SHOOT"):
+		return states.Shoot
+	return self
 
 func physics_process(delta: float) -> Node:
 	
